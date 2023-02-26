@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+	<section class="bg-light py-4 my-5">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h4 class="mb-3">Cart Items</h4>
+					<hr style="border-color:#b88bfc2";>
+				</div>
+				
+				<table class="table table-bordered">
+					<tr>
+						<th>Image</th>
+						<th>Product Name</th>
+						<th>Unit Price</th>
+						<th>Quantity</th>
+						<th>Amount</th>
+						<th>Remove</th>
+					</tr>
+					{% for item in cart %}   <!-- `cart` is from `cart_page function` in views.py file. -->
+					<tr>
+						<td><img src="{{item.product.product_image.url}}" height="75px" alt="{{item.product.name}}"</td>
+						<td>{{item.product.name}}</td>
+						<td><i class="fa fa-inr"></i> {{item.product.selling_price | stringformat:'d'}}</td>
+						<td>{{item.product_qty}}</td>
+						<td class="amt"><i class="fa fa-inr"></i> {{item.total_cost | stringformat:'d'}}</td> <!-- `.total_cost` is from `Cart class` in `models.py` file created using `property decorator`. -->
+						<td><a href="{% url 'remove_cart' item.id %}" onclick="return confirm('Are you sure? to Remove')"><button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Remove</button></a></td>
+						<!-- Above line `item.id` send `id` to `shop.urls.py` file with name="remove_cart". -->
+					</tr>
+					{% endfor %}
+					<tr>
+						<td></td>
+						<td></td>
+						<th colspan="2">Total Amount</th>
+						<td id="net" colspan="2"></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</section>
+	
+	<script>
+		const nodes = document.querySelectorAll(".amt");  //`.amt` is to get values from class="amt" and set reference to `nodes`.
+		const arr = Array.from(nodes);
+		const res = arr.reduce((acc, curr) => {
+			return acc += Number(curr.textContent)
+		},0);
+		document.getElementById("net").innerHTML = "<i class='fa fa-inr'></i> "+res;
+	</script>
+{% endblock %}

@@ -1,0 +1,32 @@
+.carousel-item img {
+	object-fit: cover;
+	object-position: top;
+	height: 60vh;
+	overflow: hidden;
+}
+
+.old_price{
+	font: bold;
+	color: red;
+}
+
+.new_price{
+	font-weight: bold;
+	background-color: green;
+	color: white;
+	padding: 2px;
+	border-radius: 5px;
+}
+
+.offer_price{
+	color:green;
+	font:bold;
+}
+
+.trending{
+	color: orangered;
+	font-weight: bold;
+	display: inline;
+	border-radius: 5px;
+	padding: 5px;
+}

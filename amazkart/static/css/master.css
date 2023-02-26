@@ -1,0 +1,58 @@
+.carousel-item img {
+	object-fit: cover;
+	object-position: top;
+	height: 60vh;
+	overflow: hidden;
+}
+
+.old_price{
+	font: bold;
+	color: red;
+}
+
+.new_price{
+	font-weight: bold;
+	background-color: green;
+	color: white;
+	padding: 2px;
+	border-radius: 5px;
+}
+
+.offer_price{
+	color:green;
+	font:bold;
+}
+
+.pic-box{
+		position: relative;
+}
+
+.trending{
+	background-color: orangered;
+	color: white;
+	width: 75px;
+	font-weight: bold;
+	display: inline;
+	border-radius: 5px;
+	padding: 5px;
+	position: absolute;
+	top: 0;
+	z-index: 10;
+}
+
+.trending_collection_view{
+	background-color: orangered;
+	color: white;
+	font-weight: bold;
+	display: inline;
+	border-radius: 50px;
+	padding: 5px;
+	position: absolute;
+	top: 0;
+	z-index: 10;
+}
+
+.footer{
+	width:100px;
+	height:100px;
+}
